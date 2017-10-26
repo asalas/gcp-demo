@@ -5,7 +5,7 @@
  */
 package io.swagger.api;
 
-import io.swagger.model.HolaResponse;
+import io.swagger.model.MensajesResponse;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -23,18 +23,18 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-26T05:27:28.167Z")
 
-@Api(value = "hola", description = "the hola API")
-public interface HolaApi {
+@Api(value = "mensajes", description = "the mensajes API")
+public interface MensajesApi {
 
-    @ApiOperation(value = "Saluda a una persona por su nombre", notes = "Retorna un mensaje de saludo", response = HolaResponse.class, authorizations = {
+    @ApiOperation(value = "Recupera los mensajes de saludo", notes = "Recupera mensajes", response = MensajesResponse.class, responseContainer = "List", authorizations = {
         @Authorization(value = "api_key")
-    }, tags={ "hola", })
+    }, tags={ "mensajes", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Operacion exitosa", response = HolaResponse.class) })
+        @ApiResponse(code = 200, message = "Operacion exitosa", response = MensajesResponse.class, responseContainer = "List") })
     
-    @RequestMapping(value = "/hola/{nombre}",
+    @RequestMapping(value = "/mensajes",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<HolaResponse> saludo(@ApiParam(value = "Nombre de la persona a saludar",required=true ) @PathVariable("nombre") String nombre);
+    ResponseEntity<List<MensajesResponse>> leerMensajes();
 
 }

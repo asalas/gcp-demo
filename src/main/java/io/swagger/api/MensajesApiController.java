@@ -1,6 +1,7 @@
 package io.swagger.api;
 
-import io.swagger.model.HolaResponse;
+import com.cirrocode.gcp.demo.service.SaludoService;
+import io.swagger.model.MensajesResponse;
 
 import io.swagger.annotations.*;
 
@@ -18,16 +19,17 @@ import java.util.List;
 
 import javax.validation.constraints.*;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-26T05:27:28.167Z")
 
 @Controller
-public class HolaApiController implements HolaApi {
+public class MensajesApiController implements MensajesApi {
 
+    @Autowired SaludoService saludoService;
 
-
-    public ResponseEntity<HolaResponse> saludo(@ApiParam(value = "Nombre de la persona a saludar",required=true ) @PathVariable("nombre") String nombre) {
-        // do some magic!
-        return new ResponseEntity<HolaResponse>(HttpStatus.OK);
+    public ResponseEntity<List<MensajesResponse>> leerMensajes() {
+        final List<MensajesResponse> leerMensajesBigQuery = this.saludoService.leerMensajesBigQuery();
+        return new ResponseEntity<>(leerMensajesBigQuery, HttpStatus.OK);
     }
 
 }

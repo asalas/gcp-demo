@@ -23,7 +23,7 @@
         -->
         <INSTANCE_CONNECTION_NAME>omega-metric-179905:us-central1:gcp-demo</INSTANCE_CONNECTION_NAME>
         <host>35.184.96.98</host>
-        <database>gcp-demo</database>
+        <database>gcp</database>
         <user>postgres</user>
         <password>desarrollo</password>        
     </properties>
@@ -93,10 +93,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <!--SpringFox dependencies -->
         <dependency>
@@ -171,6 +167,17 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>23.0</version>
-        </dependency>         
+        </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-bigquery</artifactId>
+            <version>0.24.0-beta</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava-jdk5</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>       
     </dependencies>
 </project>
