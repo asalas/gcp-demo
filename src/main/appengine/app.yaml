@@ -35,7 +35,7 @@ endpoints_api_service:
   # The following values are to be replaced by information from the output of
   # 'gcloud service-management deploy openapi.yaml' command.
   name: "omega-metric-179905.appspot.com"
-  config_id: "2017-10-26r0"
+  config_id: "2017-10-28r0"
   
 manual_scaling:
   instances: 1

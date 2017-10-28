@@ -51,10 +51,10 @@ public class LoggingComponent
 
             this.logging.write(
                     entries,
-                    Logging.WriteOption.logName("gcp-demo-log"),
-                    Logging.WriteOption.resource(MonitoredResource.newBuilder("gae_app")
-                            .addLabel("project_id", options.getProjectId())
-                            .addLabel("module_id", "gcp-demo")
+                    Logging.WriteOption.logName("gcp-demo-log"), // nombre personalizado
+                    Logging.WriteOption.resource(MonitoredResource.newBuilder("gae_app") // todos las apps son app_gae
+                            .addLabel("project_id", options.getProjectId())// Toma el ID del proyecto en ejecucion
+                            .addLabel("module_id", "gcp-demo") // Nombre del servicio en app.yaml
                             .build()));
         } 
         catch (Exception e)

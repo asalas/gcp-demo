@@ -17,6 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Profile("production")
 public class AppConfig extends WebMvcConfigurerAdapter
 {
+    /*
+    <bean id="cacheManagerCustomizer" class="...JCacheManagerCustomizer" />
+    */
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer()
     {
